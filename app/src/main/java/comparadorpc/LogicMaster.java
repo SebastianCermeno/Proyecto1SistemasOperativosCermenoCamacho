@@ -14,6 +14,8 @@ public class LogicMaster {
     public int graphicsEfficiency = 3;
     public int assemblyEfficiency = 3;
 
+    public int animeWatchingHours = 16;
+
     public CompanyPolicy specificPolicy;
     WorkerLinkedList motherboardWorkers = new WorkerLinkedList();
     WorkerLinkedList cpuWorkers = new WorkerLinkedList();
@@ -23,6 +25,7 @@ public class LogicMaster {
     WorkerLinkedList assemblyWorkers = new WorkerLinkedList();
 
     PiecesWarehouse myWarehouse = new PiecesWarehouse();
+    ComputerWarehouse finishedWarehouse = new ComputerWarehouse();
 
     // Warehouse Stats
     public int motherBoardCapacity = 25;
@@ -32,6 +35,7 @@ public class LogicMaster {
     public int gpuCapacity = 10;
 
     // Activity Stats
+    public int currentDay = 0;
     public int workDays = 10;
 
     // Inner Classes (Data Structures)
@@ -108,6 +112,9 @@ public class LogicMaster {
         public int workReturn;
         public int timeToFinish;
         private boolean isAssembly = false;
+        private boolean hasPieces = false;
+        public boolean isBuildingNormalPC = false;
+        public boolean isBuildingGamingPC = false;
         
         public int timePast = 0;
 
@@ -116,19 +123,53 @@ public class LogicMaster {
             timeToFinish = completionTime;
         }
 
+        public Worker(boolean assemblyActivator){
+            isAssembly = true;
+            workReturn = 1;
+            timeToFinish = 2;
+        }
+
         public int craft(){
-            if (!isAssembly) {
-                timePast += 1;
-                if (timePast >= timeToFinish) {
-                    timePast = 0;
-                    return workReturn;
+            timePast += 1;
+            if (timePast >= timeToFinish) {
+                timePast = 0;
+                if (isAssembly == true) {
+                    hasPieces = false;
+                    isBuildingNormalPC = false;
+                    isBuildingGamingPC = false;
+                }
+                return workReturn;
+            }
+            else {
+                return 0;
+            }
+        }
+
+        public int assembleComputer(int identifier, int motherNum, int cpuNum, int ramNum, int psuNum, int gpuNum){
+            if (hasPieces == false) {
+                boolean retrieveAttempt = myWarehouse.retrieveFromWarehouse(motherNum, cpuNum, ramNum, psuNum, gpuNum);
+                if (retrieveAttempt == true) {
+                    switch (identifier) {
+                        case 0:
+                            isBuildingNormalPC = true;
+                            isBuildingGamingPC = false;
+                            hasPieces = true;
+                            return craft();
+                        case 1:
+                            isBuildingNormalPC = false;
+                            isBuildingGamingPC = true;
+                            hasPieces = true;
+                            return craft();
+                        default:
+                            return 0;
+                    }
                 }
                 else {
                     return 0;
                 }
             }
             else {
-                return 0;
+                return craft();
             }
         }
     }
@@ -146,6 +187,65 @@ public class LogicMaster {
             availableRAMs = 0;
             availablePSUs = 0;
             availableGPUs = 0;
+        }
+
+        void addToWarehouse(int numberOfItems, int storageID){
+            switch (storageID) {
+                case 0:
+                    if (availableMotherboards + numberOfItems <= motherBoardCapacity){
+                        availableMotherboards += numberOfItems;
+                    }
+                    else {
+                        availableMotherboards = motherBoardCapacity;
+                    }     
+                    break;
+                case 1:
+                    if (availableCPUs + numberOfItems <= cpuCapacity){
+                        availableCPUs += numberOfItems;
+                    }
+                    else {
+                        availableCPUs = cpuCapacity;
+                    }     
+                    break;
+                case 2:
+                    if (availableRAMs + numberOfItems <= ramCapacity){
+                        availableRAMs += numberOfItems;
+                    }
+                    else {
+                        availableRAMs = ramCapacity;
+                    }     
+                    break;
+                case 3:
+                    if (availablePSUs + numberOfItems <= psuCapacity){
+                        availablePSUs += numberOfItems;
+                    }
+                    else {
+                        availablePSUs = psuCapacity;
+                    }     
+                    break;
+                case 4:
+                    if (availableGPUs + numberOfItems <= gpuCapacity){
+                        availableGPUs += numberOfItems;
+                    }
+                    else {
+                        availableGPUs = gpuCapacity;
+                    }     
+                    break;
+            }
+        }
+
+        public boolean retrieveFromWarehouse(int motherNum, int cpuNum, int ramNum, int psuNum, int gpuNum ){
+            if (availableMotherboards >= motherNum && availableCPUs >= cpuNum && availableRAMs >= ramNum && availablePSUs >= psuNum && availableGPUs >= gpuNum){
+                availableMotherboards -= motherNum;
+                availableCPUs -= cpuNum;
+                availableRAMs -= ramNum;
+                availablePSUs -= psuNum;
+                availableGPUs -= gpuNum;
+                return true;
+            }
+            else {
+                return false;
+            }
         }
 
         public void showInventory(){
@@ -215,11 +315,11 @@ public class LogicMaster {
                     verifyComplete();
                 }
 
-                master.myWarehouse.availableMotherboards += motherboardInput;
-                master.myWarehouse.availableCPUs += cpuInput;
-                master.myWarehouse.availableRAMs += ramInput;
-                master.myWarehouse.availablePSUs += psuInput;
-                master.myWarehouse.availableGPUs += gpuInput;
+                master.myWarehouse.addToWarehouse(motherboardInput, 0);
+                master.myWarehouse.addToWarehouse(cpuInput, 1);
+                master.myWarehouse.addToWarehouse(ramInput, 2);
+                master.myWarehouse.addToWarehouse(psuInput, 3);
+                master.myWarehouse.addToWarehouse(gpuInput, 4);
 
                 warehouseController.release();
             }
@@ -268,18 +368,96 @@ public class LogicMaster {
     }
 
     private class AssemblyPipeline extends Thread {
+        Semaphore accessToPieces;
+        Semaphore accessToCompleted;
+        LogicMaster master;
+        AssemblyPipeline(Semaphore toPieces, Semaphore toCompleted, LogicMaster parent){
+            master = parent;
+            accessToPieces = toPieces;
+            accessToCompleted = toCompleted;
+        }
+        
+        @Override
+        public void run() {
+            try {
+                accessToPieces.acquire();
+                int completeStandardPC = 0;
+                int completeGamingPC = 0;
+                int nextProduction = master.specificPolicy.retrieveAndLoop();
+                int[] productionObject;
+                for (int i = 0; i < master.assemblyWorkers.length; i++){
+                    if (master.assemblyWorkers.findAndRetrieve(i).hasPieces == true) {
+                        if (master.assemblyWorkers.findAndRetrieve(i).isBuildingNormalPC == true){
+                            completeStandardPC += master.assemblyWorkers.findAndRetrieve(i).assembleComputer(i, i, i, i, i, i);
+                        }
+                        else if (master.assemblyWorkers.findAndRetrieve(i).isBuildingGamingPC == true) {
+                            completeGamingPC += master.assemblyWorkers.findAndRetrieve(i).assembleComputer(i, i, i, i, i, i);
+                        }
+                    }
+                    else {
+                        switch (nextProduction) {
+                            case 0:
+                                productionObject = master.specificPolicy.returnStandardPC();
+                                completeStandardPC += master.assemblyWorkers.findAndRetrieve(i).assembleComputer(productionObject[0], productionObject[1], productionObject[2], productionObject[3],productionObject[4], productionObject[5]);
+                                if (master.assemblyWorkers.findAndRetrieve(i).isBuildingNormalPC == true) {
+                                    nextProduction = master.specificPolicy.retrieveAndLoop();
+                                }
+                                break;
+                            case 1:
+                                productionObject = master.specificPolicy.returnGamingPC();
+                                completeGamingPC += master.assemblyWorkers.findAndRetrieve(i).assembleComputer(productionObject[0], productionObject[1], productionObject[2], productionObject[3],productionObject[4], productionObject[5]);
+                                if (master.assemblyWorkers.findAndRetrieve(i).isBuildingGamingPC == true) {
+                                    nextProduction = master.specificPolicy.retrieveAndLoop();
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
 
+                }
+                accessToPieces.release();
+
+                accessToCompleted.acquire();
+                finishedWarehouse.addStandardPCs(completeStandardPC);
+                finishedWarehouse.addGamerPCs(completeGamingPC);
+                accessToCompleted.release();
+            }
+            catch (InterruptedException exc) {
+
+            }
+        }
+    }
+
+    private class ComputerWarehouse {
+        int standardPCs = 0;
+        int gamerPCs = 0;
+
+        public void addStandardPCs(int quantity) {
+            standardPCs += quantity;
+        }
+        public void addGamerPCs(int quantity) {
+            gamerPCs += quantity;
+        }
+
+        public void shareInventory(){
+            System.out.println("PCs Regulares: " + standardPCs);
+            System.out.println("PCs Gamer: " + gamerPCs);
+        }
     }
 
     private class ProjectManagerPipeline extends Thread {
-
+        @Override
+        public void run(){
+            currentDay++;
+        }
     }
 
     private class BossPipeline extends Thread {
     
     }
 
-    public void executeSimulation() { 
+    public void executeSimulation() throws InterruptedException { 
         for (int i = 0; i < 3; i++) {
             this.motherboardWorkers.append(new Worker(1, 2));
         }
@@ -300,17 +478,31 @@ public class LogicMaster {
             this.graphicsWorkers.append(new Worker(1, 3));
         }
 
-        Semaphore zetta = new Semaphore(1);
-        
-        for (int i = 0; i<3; i++) {
-            PiecesPipeline scrimblis = new PiecesPipeline(zetta, this);
-            scrimblis.start();
+        for (int i = 0; i < 1; i++) {
+            this.assemblyWorkers.append(new Worker(true));
+        }
 
-            while (scrimblis.isAlive() == true) {
+        this.specificPolicy = new CompanyPolicy(3, 1, 1, 5, 6, 5, 1);
+
+        currentDay = 0;
+        Semaphore zetta = new Semaphore(1);
+        Semaphore geara = new Semaphore(1);
+        
+        for (int i = currentDay; i < 100; i++) {
+            PiecesPipeline scrimblis = new PiecesPipeline(zetta, this);
+            ProjectManagerPipeline dandadan = new ProjectManagerPipeline();
+            AssemblyPipeline elconstructordeclashofclans = new AssemblyPipeline(zetta, geara, this);
+            scrimblis.start();
+            scrimblis.join();
+            elconstructordeclashofclans.start();
+            dandadan.start();
+
+            while (Thread.activeCount() > 1) {
                 continue;
             }
         }
 
-        this.myWarehouse.showInventory();
+        // this.myWarehouse.showInventory();
+        this.finishedWarehouse.shareInventory();
     }
 }
