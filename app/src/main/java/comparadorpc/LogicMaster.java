@@ -1,6 +1,12 @@
 package comparadorpc;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.concurrent.Semaphore;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 public class LogicMaster {
     // Main Attributes (for config later)
@@ -37,7 +43,48 @@ public class LogicMaster {
     // Activity Stats
     public int currentDay = 0;
     public int workDays = 10;
+    public int dayInSeconds = 0;
+    public int computerDeliverDeadline = 0;
+    public int initialMotherBoardWorkers = 0;
+    public int initialCPUWorkers = 0;
+    public int initialRAMWorkers = 0;
+    public int initialpsuWorkers = 0;
+    public int initialGraphicsWorkers = 0;
+    public int initialAssemblyWorkers = 0;
 
+    public void setDayInSeconds(int dayInSeconds) {
+        this.dayInSeconds = dayInSeconds;
+    }
+
+    public void setComputerDeliverDeadline(int computerDeliverDeadline) {
+        this.computerDeliverDeadline = computerDeliverDeadline;
+    }
+
+    public void setInitialMotherBoardWorkers(int initialMotherBoardWorkers) {
+        this.initialMotherBoardWorkers = initialMotherBoardWorkers;
+    }
+
+    public void setInitialCPUWorkers(int initialCPUWorkers) {
+        this.initialCPUWorkers = initialCPUWorkers;
+    }
+
+    public void setInitialRAMWorkers(int initialRAMWorkers) {
+        this.initialRAMWorkers = initialRAMWorkers;
+    }
+
+    public void setInitialpsuWorkers(int initialpsuWorkers) {
+        this.initialpsuWorkers = initialpsuWorkers;
+    }
+
+    public void setInitialGraphicsWorkers(int initialGraphicsWorkers) {
+        this.initialGraphicsWorkers = initialGraphicsWorkers;
+    }
+
+    public void setInitialAssemblyWorkers(int initialAssemblyWorkers) {
+        this.initialAssemblyWorkers = initialAssemblyWorkers;
+    }
+
+    
     // Inner Classes (Data Structures)
     private class WorkerLinkedList {
         WorkerNode root;
@@ -505,4 +552,43 @@ public class LogicMaster {
         // this.myWarehouse.showInventory();
         this.finishedWarehouse.shareInventory();
     }
+    
+    public void FileChooser() {
+        JFileChooser fileChooser = new JFileChooser();
+        int result = fileChooser.showOpenDialog(null);
+
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            int[] valuesArray = readFileToArray(selectedFile);
+            this.setDayInSeconds(valuesArray[0]);
+            this.setComputerDeliverDeadline(valuesArray[1]);
+            this.setInitialMotherBoardWorkers(valuesArray[2]);
+            this.setInitialCPUWorkers(valuesArray[3]);
+            this.setInitialRAMWorkers(valuesArray[4]);
+            this.setInitialpsuWorkers(valuesArray[5]);
+            this.setInitialGraphicsWorkers(valuesArray[6]);
+            this.setInitialAssemblyWorkers(valuesArray[7]);
+            JOptionPane.showMessageDialog(null, "¡Carga Exitosa!");
+        }else{
+            JOptionPane.showMessageDialog(null, "No ha seleccionado ningún archivo.");
+        }
+    }
+
+    public static int[] readFileToArray(File file) {
+        int[] array = new int[8];
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            int index = 0;
+            while ((line = reader.readLine()) != null && index < array.length) {
+                array[index] = Integer.parseInt(line.trim());
+                index++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (NumberFormatException e) {
+            System.out.println("Error: asegúrate de que el archivo contiene solo números enteros.");
+        }
+        return array;
+    }
 }
+

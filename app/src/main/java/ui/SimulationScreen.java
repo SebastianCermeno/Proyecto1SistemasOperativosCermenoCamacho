@@ -141,7 +141,7 @@ public class SimulationScreen extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(1286, 0, 377, 358);
+        jPanel1.setBounds(1286, 0, 0, 0);
 
         Slider_placasBase_DELL.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(Slider_placasBase_DELL);
@@ -167,26 +167,31 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(Slider_Ensambladores_DELL);
         Slider_Ensambladores_DELL.setBounds(200, 480, 200, 11);
 
+        placasBaseAlmacen_DELL.setEditable(false);
         placasBaseAlmacen_DELL.setBackground(new java.awt.Color(255, 255, 255));
         placasBaseAlmacen_DELL.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(placasBaseAlmacen_DELL);
         placasBaseAlmacen_DELL.setBounds(450, 270, 80, 30);
 
+        CPUalmacen_DELL.setEditable(false);
         CPUalmacen_DELL.setBackground(new java.awt.Color(255, 255, 255));
         CPUalmacen_DELL.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(CPUalmacen_DELL);
         CPUalmacen_DELL.setBounds(450, 310, 80, 30);
 
+        RAMalmacen_DELL.setEditable(false);
         RAMalmacen_DELL.setBackground(new java.awt.Color(255, 255, 255));
         RAMalmacen_DELL.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(RAMalmacen_DELL);
         RAMalmacen_DELL.setBounds(450, 350, 80, 30);
 
+        AlimentacionAlmacen_DELL.setEditable(false);
         AlimentacionAlmacen_DELL.setBackground(new java.awt.Color(255, 255, 255));
         AlimentacionAlmacen_DELL.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(AlimentacionAlmacen_DELL);
         AlimentacionAlmacen_DELL.setBounds(450, 390, 80, 30);
 
+        TGAlmacen_DELL.setEditable(false);
         TGAlmacen_DELL.setBackground(new java.awt.Color(255, 255, 255));
         TGAlmacen_DELL.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(TGAlmacen_DELL);
@@ -246,6 +251,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel10);
         jLabel10.setBounds(20, 570, 80, 30);
 
+        PCwTG_DELL.setEditable(false);
         PCwTG_DELL.setBackground(new java.awt.Color(255, 255, 255));
         PCwTG_DELL.setForeground(new java.awt.Color(51, 51, 51));
         PCwTG_DELL.addActionListener(new java.awt.event.ActionListener() {
@@ -256,6 +262,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(PCwTG_DELL);
         PCwTG_DELL.setBounds(180, 610, 80, 30);
 
+        PCEstandar_DELL.setEditable(false);
         PCEstandar_DELL.setBackground(new java.awt.Color(255, 255, 255));
         PCEstandar_DELL.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(PCEstandar_DELL);
@@ -267,6 +274,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel11);
         jLabel11.setBounds(290, 570, 80, 30);
 
+        ingresos_DELL.setEditable(false);
         ingresos_DELL.setBackground(new java.awt.Color(255, 255, 255));
         ingresos_DELL.setForeground(new java.awt.Color(51, 51, 51));
         ingresos_DELL.addActionListener(new java.awt.event.ActionListener() {
@@ -283,6 +291,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel12);
         jLabel12.setBounds(470, 640, 150, 30);
 
+        jTextField10.setEditable(false);
         jTextField10.setBackground(new java.awt.Color(255, 255, 255));
         jTextField10.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(jTextField10);
@@ -345,6 +354,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel21);
         jLabel21.setBounds(30, 170, 250, 30);
 
+        availibleWorkers_DELL.setEditable(false);
         availibleWorkers_DELL.setBackground(new java.awt.Color(255, 255, 255));
         availibleWorkers_DELL.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(availibleWorkers_DELL);
@@ -398,21 +408,25 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel29);
         jLabel29.setBounds(90, 20, 100, 30);
 
+        directorState_DELL.setEditable(false);
         directorState_DELL.setBackground(new java.awt.Color(255, 255, 255));
         directorState_DELL.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(directorState_DELL);
         directorState_DELL.setBounds(70, 60, 150, 30);
 
+        PMState_DELL.setEditable(false);
         PMState_DELL.setBackground(new java.awt.Color(255, 255, 255));
         PMState_DELL.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(PMState_DELL);
         PMState_DELL.setBounds(280, 60, 180, 30);
 
+        PMfaultCount_DELL.setEditable(false);
         PMfaultCount_DELL.setBackground(new java.awt.Color(255, 255, 255));
         PMfaultCount_DELL.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(PMfaultCount_DELL);
         PMfaultCount_DELL.setBounds(490, 60, 80, 30);
 
+        PMwageLoss_DELL.setEditable(false);
         PMwageLoss_DELL.setBackground(new java.awt.Color(255, 255, 255));
         PMwageLoss_DELL.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(PMwageLoss_DELL);
@@ -437,6 +451,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(displayDashboard_Button);
         displayDashboard_Button.setBounds(530, 680, 130, 30);
 
+        PCwTG_MSI.setEditable(false);
         PCwTG_MSI.setBackground(new java.awt.Color(255, 255, 255));
         PCwTG_MSI.setForeground(new java.awt.Color(51, 51, 51));
         PCwTG_MSI.addActionListener(new java.awt.event.ActionListener() {
@@ -447,6 +462,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(PCwTG_MSI);
         PCwTG_MSI.setBounds(820, 610, 80, 30);
 
+        ingresos_MSI.setEditable(false);
         ingresos_MSI.setBackground(new java.awt.Color(255, 255, 255));
         ingresos_MSI.setForeground(new java.awt.Color(51, 51, 51));
         ingresos_MSI.addActionListener(new java.awt.event.ActionListener() {
@@ -463,6 +479,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel31);
         jLabel31.setBounds(930, 570, 80, 30);
 
+        PCEstandar_MSI.setEditable(false);
         PCEstandar_MSI.setBackground(new java.awt.Color(255, 255, 255));
         PCEstandar_MSI.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(PCEstandar_MSI);
@@ -503,6 +520,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel37);
         jLabel37.setBounds(1180, 430, 50, 30);
 
+        TGalmacen_MSI.setEditable(false);
         TGalmacen_MSI.setBackground(new java.awt.Color(255, 255, 255));
         TGalmacen_MSI.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(TGalmacen_MSI);
@@ -552,6 +570,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel42);
         jLabel42.setBounds(700, 350, 140, 30);
 
+        fuentesAlimAlmacen_MSI.setEditable(false);
         fuentesAlimAlmacen_MSI.setBackground(new java.awt.Color(255, 255, 255));
         fuentesAlimAlmacen_MSI.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(fuentesAlimAlmacen_MSI);
@@ -581,6 +600,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel46);
         jLabel46.setBounds(1180, 310, 50, 30);
 
+        CPUAlmacen_MSI.setEditable(false);
         CPUAlmacen_MSI.setBackground(new java.awt.Color(255, 255, 255));
         CPUAlmacen_MSI.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(CPUAlmacen_MSI);
@@ -618,6 +638,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel50);
         jLabel50.setBounds(1050, 270, 20, 30);
 
+        placasBaseAlmacen_MSI.setEditable(false);
         placasBaseAlmacen_MSI.setBackground(new java.awt.Color(255, 255, 255));
         placasBaseAlmacen_MSI.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(placasBaseAlmacen_MSI);
@@ -647,16 +668,19 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel54);
         jLabel54.setBounds(670, 170, 250, 30);
 
+        availibleWorkers_MSI.setEditable(false);
         availibleWorkers_MSI.setBackground(new java.awt.Color(255, 255, 255));
         availibleWorkers_MSI.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(availibleWorkers_MSI);
         availibleWorkers_MSI.setBounds(930, 170, 80, 30);
 
+        PMwageLoss_MSI.setEditable(false);
         PMwageLoss_MSI.setBackground(new java.awt.Color(255, 255, 255));
         PMwageLoss_MSI.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(PMwageLoss_MSI);
         PMwageLoss_MSI.setBounds(1130, 100, 80, 30);
 
+        PMFaultCount_MSI.setEditable(false);
         PMFaultCount_MSI.setBackground(new java.awt.Color(255, 255, 255));
         PMFaultCount_MSI.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(PMFaultCount_MSI);
@@ -674,11 +698,13 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel56);
         jLabel56.setBounds(920, 20, 190, 30);
 
+        PMState_MSI.setEditable(false);
         PMState_MSI.setBackground(new java.awt.Color(255, 255, 255));
         PMState_MSI.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(PMState_MSI);
         PMState_MSI.setBounds(920, 60, 180, 30);
 
+        directorState_MSI.setEditable(false);
         directorState_MSI.setBackground(new java.awt.Color(255, 255, 255));
         directorState_MSI.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(directorState_MSI);
@@ -690,6 +716,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel57);
         jLabel57.setBounds(730, 20, 100, 30);
 
+        RAMalmacen_MSI.setEditable(false);
         RAMalmacen_MSI.setBackground(new java.awt.Color(255, 255, 255));
         RAMalmacen_MSI.setForeground(new java.awt.Color(51, 51, 51));
         getContentPane().add(RAMalmacen_MSI);

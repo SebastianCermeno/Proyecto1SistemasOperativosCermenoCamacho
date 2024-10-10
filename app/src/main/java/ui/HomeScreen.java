@@ -103,7 +103,7 @@ public class HomeScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_ExitButtonActionPerformed
 
     private void uploadTxtButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadTxtButtonActionPerformed
-        // TODO add your handling code here:
+        this.puppetMaster.FileChooser();
     }//GEN-LAST:event_uploadTxtButtonActionPerformed
 
     private void openSimulationScreenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openSimulationScreenButtonActionPerformed

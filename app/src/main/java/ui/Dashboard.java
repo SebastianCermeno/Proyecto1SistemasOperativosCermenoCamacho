@@ -36,17 +36,17 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        placasBaseAlmacen_DELL = new javax.swing.JTextField();
-        placasBaseAlmacen_DELL1 = new javax.swing.JTextField();
-        placasBaseAlmacen_DELL2 = new javax.swing.JTextField();
+        gananciasBruto_DELL = new javax.swing.JTextField();
+        utilidadTotal_DELL = new javax.swing.JTextField();
+        costosOper_DELL = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        placasBaseAlmacen_DELL3 = new javax.swing.JTextField();
+        utilidadTotal_MSI = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        placasBaseAlmacen_DELL4 = new javax.swing.JTextField();
+        costosOper_MSI = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        placasBaseAlmacen_DELL5 = new javax.swing.JTextField();
+        gananciasBruto_MSI = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         wallpaper = new javax.swing.JLabel();
 
@@ -60,35 +60,38 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel1.add(jLabel13);
         jLabel13.setBounds(30, 80, 230, 30);
 
-        placasBaseAlmacen_DELL.setBackground(new java.awt.Color(255, 255, 255));
-        placasBaseAlmacen_DELL.setForeground(new java.awt.Color(51, 51, 51));
-        placasBaseAlmacen_DELL.addActionListener(new java.awt.event.ActionListener() {
+        gananciasBruto_DELL.setEditable(false);
+        gananciasBruto_DELL.setBackground(new java.awt.Color(255, 255, 255));
+        gananciasBruto_DELL.setForeground(new java.awt.Color(51, 51, 51));
+        gananciasBruto_DELL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                placasBaseAlmacen_DELLActionPerformed(evt);
+                gananciasBruto_DELLActionPerformed(evt);
             }
         });
-        jPanel1.add(placasBaseAlmacen_DELL);
-        placasBaseAlmacen_DELL.setBounds(40, 120, 160, 30);
+        jPanel1.add(gananciasBruto_DELL);
+        gananciasBruto_DELL.setBounds(40, 120, 160, 30);
 
-        placasBaseAlmacen_DELL1.setBackground(new java.awt.Color(255, 255, 255));
-        placasBaseAlmacen_DELL1.setForeground(new java.awt.Color(51, 51, 51));
-        placasBaseAlmacen_DELL1.addActionListener(new java.awt.event.ActionListener() {
+        utilidadTotal_DELL.setEditable(false);
+        utilidadTotal_DELL.setBackground(new java.awt.Color(255, 255, 255));
+        utilidadTotal_DELL.setForeground(new java.awt.Color(51, 51, 51));
+        utilidadTotal_DELL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                placasBaseAlmacen_DELL1ActionPerformed(evt);
+                utilidadTotal_DELLActionPerformed(evt);
             }
         });
-        jPanel1.add(placasBaseAlmacen_DELL1);
-        placasBaseAlmacen_DELL1.setBounds(40, 310, 160, 30);
+        jPanel1.add(utilidadTotal_DELL);
+        utilidadTotal_DELL.setBounds(40, 310, 160, 30);
 
-        placasBaseAlmacen_DELL2.setBackground(new java.awt.Color(255, 255, 255));
-        placasBaseAlmacen_DELL2.setForeground(new java.awt.Color(51, 51, 51));
-        placasBaseAlmacen_DELL2.addActionListener(new java.awt.event.ActionListener() {
+        costosOper_DELL.setEditable(false);
+        costosOper_DELL.setBackground(new java.awt.Color(255, 255, 255));
+        costosOper_DELL.setForeground(new java.awt.Color(51, 51, 51));
+        costosOper_DELL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                placasBaseAlmacen_DELL2ActionPerformed(evt);
+                costosOper_DELLActionPerformed(evt);
             }
         });
-        jPanel1.add(placasBaseAlmacen_DELL2);
-        placasBaseAlmacen_DELL2.setBounds(40, 220, 160, 30);
+        jPanel1.add(costosOper_DELL);
+        costosOper_DELL.setBounds(40, 220, 160, 30);
 
         jLabel28.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(0, 0, 0));
@@ -108,15 +111,16 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel1.add(jLabel15);
         jLabel15.setBounds(30, 270, 250, 30);
 
-        placasBaseAlmacen_DELL3.setBackground(new java.awt.Color(255, 255, 255));
-        placasBaseAlmacen_DELL3.setForeground(new java.awt.Color(51, 51, 51));
-        placasBaseAlmacen_DELL3.addActionListener(new java.awt.event.ActionListener() {
+        utilidadTotal_MSI.setEditable(false);
+        utilidadTotal_MSI.setBackground(new java.awt.Color(255, 255, 255));
+        utilidadTotal_MSI.setForeground(new java.awt.Color(51, 51, 51));
+        utilidadTotal_MSI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                placasBaseAlmacen_DELL3ActionPerformed(evt);
+                utilidadTotal_MSIActionPerformed(evt);
             }
         });
-        jPanel1.add(placasBaseAlmacen_DELL3);
-        placasBaseAlmacen_DELL3.setBounds(420, 310, 160, 30);
+        jPanel1.add(utilidadTotal_MSI);
+        utilidadTotal_MSI.setBounds(420, 310, 160, 30);
 
         jLabel16.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
@@ -124,15 +128,16 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel1.add(jLabel16);
         jLabel16.setBounds(410, 270, 250, 30);
 
-        placasBaseAlmacen_DELL4.setBackground(new java.awt.Color(255, 255, 255));
-        placasBaseAlmacen_DELL4.setForeground(new java.awt.Color(51, 51, 51));
-        placasBaseAlmacen_DELL4.addActionListener(new java.awt.event.ActionListener() {
+        costosOper_MSI.setEditable(false);
+        costosOper_MSI.setBackground(new java.awt.Color(255, 255, 255));
+        costosOper_MSI.setForeground(new java.awt.Color(51, 51, 51));
+        costosOper_MSI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                placasBaseAlmacen_DELL4ActionPerformed(evt);
+                costosOper_MSIActionPerformed(evt);
             }
         });
-        jPanel1.add(placasBaseAlmacen_DELL4);
-        placasBaseAlmacen_DELL4.setBounds(420, 220, 160, 30);
+        jPanel1.add(costosOper_MSI);
+        costosOper_MSI.setBounds(420, 220, 160, 30);
 
         jLabel17.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
@@ -140,15 +145,16 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel1.add(jLabel17);
         jLabel17.setBounds(410, 170, 230, 30);
 
-        placasBaseAlmacen_DELL5.setBackground(new java.awt.Color(255, 255, 255));
-        placasBaseAlmacen_DELL5.setForeground(new java.awt.Color(51, 51, 51));
-        placasBaseAlmacen_DELL5.addActionListener(new java.awt.event.ActionListener() {
+        gananciasBruto_MSI.setEditable(false);
+        gananciasBruto_MSI.setBackground(new java.awt.Color(255, 255, 255));
+        gananciasBruto_MSI.setForeground(new java.awt.Color(51, 51, 51));
+        gananciasBruto_MSI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                placasBaseAlmacen_DELL5ActionPerformed(evt);
+                gananciasBruto_MSIActionPerformed(evt);
             }
         });
-        jPanel1.add(placasBaseAlmacen_DELL5);
-        placasBaseAlmacen_DELL5.setBounds(420, 120, 160, 30);
+        jPanel1.add(gananciasBruto_MSI);
+        gananciasBruto_MSI.setBounds(420, 120, 160, 30);
 
         jLabel18.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
@@ -174,29 +180,29 @@ public class Dashboard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void placasBaseAlmacen_DELLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placasBaseAlmacen_DELLActionPerformed
+    private void gananciasBruto_DELLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gananciasBruto_DELLActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_placasBaseAlmacen_DELLActionPerformed
+    }//GEN-LAST:event_gananciasBruto_DELLActionPerformed
 
-    private void placasBaseAlmacen_DELL1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placasBaseAlmacen_DELL1ActionPerformed
+    private void utilidadTotal_DELLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_utilidadTotal_DELLActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_placasBaseAlmacen_DELL1ActionPerformed
+    }//GEN-LAST:event_utilidadTotal_DELLActionPerformed
 
-    private void placasBaseAlmacen_DELL2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placasBaseAlmacen_DELL2ActionPerformed
+    private void costosOper_DELLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costosOper_DELLActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_placasBaseAlmacen_DELL2ActionPerformed
+    }//GEN-LAST:event_costosOper_DELLActionPerformed
 
-    private void placasBaseAlmacen_DELL3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placasBaseAlmacen_DELL3ActionPerformed
+    private void utilidadTotal_MSIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_utilidadTotal_MSIActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_placasBaseAlmacen_DELL3ActionPerformed
+    }//GEN-LAST:event_utilidadTotal_MSIActionPerformed
 
-    private void placasBaseAlmacen_DELL4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placasBaseAlmacen_DELL4ActionPerformed
+    private void costosOper_MSIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costosOper_MSIActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_placasBaseAlmacen_DELL4ActionPerformed
+    }//GEN-LAST:event_costosOper_MSIActionPerformed
 
-    private void placasBaseAlmacen_DELL5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placasBaseAlmacen_DELL5ActionPerformed
+    private void gananciasBruto_MSIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gananciasBruto_MSIActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_placasBaseAlmacen_DELL5ActionPerformed
+    }//GEN-LAST:event_gananciasBruto_MSIActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,6 +240,10 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField costosOper_DELL;
+    private javax.swing.JTextField costosOper_MSI;
+    private javax.swing.JTextField gananciasBruto_DELL;
+    private javax.swing.JTextField gananciasBruto_MSI;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -242,12 +252,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField placasBaseAlmacen_DELL;
-    private javax.swing.JTextField placasBaseAlmacen_DELL1;
-    private javax.swing.JTextField placasBaseAlmacen_DELL2;
-    private javax.swing.JTextField placasBaseAlmacen_DELL3;
-    private javax.swing.JTextField placasBaseAlmacen_DELL4;
-    private javax.swing.JTextField placasBaseAlmacen_DELL5;
+    private javax.swing.JTextField utilidadTotal_DELL;
+    private javax.swing.JTextField utilidadTotal_MSI;
     private javax.swing.JLabel wallpaper;
     // End of variables declaration//GEN-END:variables
 }
