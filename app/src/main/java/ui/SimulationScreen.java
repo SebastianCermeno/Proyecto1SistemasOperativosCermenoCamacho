@@ -20,9 +20,11 @@ public class SimulationScreen extends javax.swing.JFrame {
      * Creates new form SimulationScreen
      */
     public SimulationScreen(LogicMaster dellController, LogicMaster msiController) {
-        initComponents();
         this.puppetMasterMagenta = dellController;
         this.puppetMasterNeon = msiController;
+        initComponents();
+        this.summonPiecesData();
+        this.summonCompletePCData();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
@@ -777,6 +779,34 @@ public class SimulationScreen extends javax.swing.JFrame {
         Dashboard db = new Dashboard(puppetMasterMagenta, puppetMasterNeon);
     }//GEN-LAST:event_back_ButtonActionPerformed
 
+    // +++++++++++++++++ FUNCTIONS +++++++++++++++++
+    private void summonPiecesData() {
+        int[] dellData = puppetMasterMagenta.sendPiecesData();
+        int[] msiData = puppetMasterNeon.sendPiecesData();
+
+        placasBaseAlmacen_DELL.setText(String.valueOf(dellData[0]));
+        CPUalmacen_DELL.setText(String.valueOf(dellData[1]));
+        RAMalmacen_DELL.setText(String.valueOf(dellData[2]));
+        AlimentacionAlmacen_DELL.setText(String.valueOf(dellData[3]));
+        TGAlmacen_DELL.setText(String.valueOf(dellData[4]));
+
+        placasBaseAlmacen_MSI.setText(String.valueOf(msiData[0]));
+        CPUAlmacen_MSI.setText(String.valueOf(msiData[1]));
+        RAMalmacen_MSI.setText(String.valueOf(msiData[2]));
+        fuentesAlimAlmacen_MSI.setText(String.valueOf(msiData[3]));
+        TGalmacen_MSI.setText(String.valueOf(msiData[4]));
+    }
+
+    private void summonCompletePCData(){
+        int[] dellData = puppetMasterMagenta.sendComputerData();
+        int[] msiData = puppetMasterNeon.sendComputerData();
+
+        PCEstandar_DELL.setText(String.valueOf(dellData[0]));
+        PCwTG_DELL.setText(String.valueOf(dellData[1]));
+
+        PCEstandar_MSI.setText(String.valueOf(msiData[0]));
+        PCwTG_MSI.setText(String.valueOf(msiData[1]));
+    }
     /**
      * @param args the command line arguments
      */
