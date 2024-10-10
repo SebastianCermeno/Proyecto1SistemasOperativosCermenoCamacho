@@ -13,13 +13,15 @@ import comparadorpc.LogicMaster;
  */
 public class HomeScreen extends javax.swing.JFrame {
 
-    public static LogicMaster puppetMaster;
+    public static LogicMaster puppetMasterMagenta;
+    public static LogicMaster puppetMasterNeon;
     /**
      * Creates new form HomeScreen
      */
-    public HomeScreen(LogicMaster puppetMaster) {
+    public HomeScreen(LogicMaster dellController, LogicMaster msiController) {
         initComponents();
-        this.puppetMaster = puppetMaster;
+        this.puppetMasterMagenta = dellController;
+        this.puppetMasterNeon = msiController;
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
@@ -80,9 +82,13 @@ public class HomeScreen extends javax.swing.JFrame {
         jPanel1.add(ExitButton);
         ExitButton.setBounds(20, 490, 92, 35);
 
-        Wallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Modelos - Proyecto SSOO 1 - Main screen.png"))); // NOI18N
-        jPanel1.add(Wallpaper);
-        Wallpaper.setBounds(0, 0, 960, 540);
+        try {
+            Wallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Modelos - Proyecto SSOO 1 - Main screen.png")));
+            jPanel1.add(Wallpaper);
+            Wallpaper.setBounds(0, 0, 960, 540);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,11 +109,11 @@ public class HomeScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_ExitButtonActionPerformed
 
     private void uploadTxtButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadTxtButtonActionPerformed
-        this.puppetMaster.FileChooser();
+        //this.puppetMaster.FileChooser();
     }//GEN-LAST:event_uploadTxtButtonActionPerformed
 
     private void openSimulationScreenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openSimulationScreenButtonActionPerformed
-        SimulationScreen w2 = new SimulationScreen(this.puppetMaster);
+        SimulationScreen w2 = new SimulationScreen(puppetMasterMagenta, puppetMasterNeon);
         this.dispose();
     }//GEN-LAST:event_openSimulationScreenButtonActionPerformed
 
@@ -141,7 +147,7 @@ public class HomeScreen extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomeScreen(puppetMaster).setVisible(true);
+                new HomeScreen(puppetMasterMagenta, puppetMasterNeon).setVisible(true);
             }
         });
     }

@@ -13,14 +13,16 @@ import comparadorpc.LogicMaster;
  */
 public class Dashboard extends javax.swing.JFrame {
     
-    public static LogicMaster puppetMaster;
+    public static LogicMaster puppetMasterMagenta;
+    public static LogicMaster puppLogicMasterNeon;
 
     /**
      * Creates new form Dashboard
      */
-    public Dashboard(LogicMaster puppetMaster) {
+    public Dashboard(LogicMaster dellController, LogicMaster msiController) {
         initComponents();
-        this.puppetMaster = puppetMaster;
+        this.puppetMasterMagenta = dellController;
+        this.puppetMasterMagenta = msiController;
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
@@ -162,9 +164,14 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel1.add(jLabel18);
         jLabel18.setBounds(410, 80, 230, 30);
 
-        wallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/dashboard_wallpp.png"))); // NOI18N
-        jPanel1.add(wallpaper);
-        wallpaper.setBounds(0, 0, 733, 370);
+        try {
+            wallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/dashboard_wallpp.png"))); // NOI18N
+            jPanel1.add(wallpaper);
+            wallpaper.setBounds(0, 0, 733, 370); 
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -234,7 +241,7 @@ public class Dashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dashboard(puppetMaster).setVisible(true);
+                new Dashboard(puppetMasterMagenta, puppLogicMasterNeon).setVisible(true);
             }
         });
     }

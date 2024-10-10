@@ -13,14 +13,16 @@ import comparadorpc.LogicMaster;
  */
 public class SimulationScreen extends javax.swing.JFrame {
 
-    public static LogicMaster puppetMaster;
+    public static LogicMaster puppetMasterMagenta;
+    public static LogicMaster puppetMasterNeon;
     
     /**
      * Creates new form SimulationScreen
      */
-    public SimulationScreen(LogicMaster puppetMaster) {
+    public SimulationScreen(LogicMaster dellController, LogicMaster msiController) {
         initComponents();
-        this.puppetMaster = puppetMaster;
+        this.puppetMasterMagenta = dellController;
+        this.puppetMasterNeon = msiController;
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
@@ -229,13 +231,13 @@ public class SimulationScreen extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Con Tarjeta Gráfica:");
+        jLabel6.setText("Con Tarjeta GrÃ¡fica:");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(20, 610, 150, 30);
 
         jLabel8.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Elementos en Almacén");
+        jLabel8.setText("Elementos en AlmacÃ©n");
         getContentPane().add(jLabel8);
         jLabel8.setBounds(400, 230, 230, 30);
 
@@ -247,7 +249,7 @@ public class SimulationScreen extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("Estándar:");
+        jLabel10.setText("EstÃ¡ndar:");
         getContentPane().add(jLabel10);
         jLabel10.setBounds(20, 570, 80, 30);
 
@@ -287,7 +289,7 @@ public class SimulationScreen extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setText("Días para Entrega:");
+        jLabel12.setText("DÃ­as para Entrega:");
         getContentPane().add(jLabel12);
         jLabel12.setBounds(470, 640, 150, 30);
 
@@ -330,14 +332,14 @@ public class SimulationScreen extends javax.swing.JFrame {
 
         jLabel18.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel18.setText("de Alimentación");
+        jLabel18.setText("de AlimentaciÃ³n");
         jLabel18.setToolTipText("");
         getContentPane().add(jLabel18);
         jLabel18.setBounds(70, 400, 220, 30);
 
         jLabel19.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel19.setText("De Tarjetas Gráficas");
+        jLabel19.setText("De Tarjetas GrÃ¡ficas");
         jLabel19.setToolTipText("");
         getContentPane().add(jLabel19);
         jLabel19.setBounds(40, 430, 220, 30);
@@ -487,7 +489,7 @@ public class SimulationScreen extends javax.swing.JFrame {
 
         jLabel32.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel32.setText("Estándar:");
+        jLabel32.setText("EstÃ¡ndar:");
         getContentPane().add(jLabel32);
         jLabel32.setBounds(660, 570, 80, 30);
 
@@ -538,14 +540,14 @@ public class SimulationScreen extends javax.swing.JFrame {
 
         jLabel39.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel39.setText("De Tarjetas Gráficas");
+        jLabel39.setText("De Tarjetas GrÃ¡ficas");
         jLabel39.setToolTipText("");
         getContentPane().add(jLabel39);
         jLabel39.setBounds(680, 430, 220, 30);
 
         jLabel40.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel40.setText("de Alimentación");
+        jLabel40.setText("de AlimentaciÃ³n");
         jLabel40.setToolTipText("");
         getContentPane().add(jLabel40);
         jLabel40.setBounds(710, 400, 220, 30);
@@ -652,7 +654,7 @@ public class SimulationScreen extends javax.swing.JFrame {
 
         jLabel52.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel52.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel52.setText("Elementos en Almacén");
+        jLabel52.setText("Elementos en Almacen");
         getContentPane().add(jLabel52);
         jLabel52.setBounds(1040, 230, 230, 30);
 
@@ -740,11 +742,13 @@ public class SimulationScreen extends javax.swing.JFrame {
         });
         getContentPane().add(back_Button);
         back_Button.setBounds(20, 680, 130, 30);
-
-        Wallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Modelos - Proyecto SSOO 1.png"))); // NOI18N
-        getContentPane().add(Wallpaper);
-        Wallpaper.setBounds(0, 0, 1280, 720);
-
+        try {
+            Wallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Modelos - Proyecto SSOO 1.png"))); // NOI18N
+            getContentPane().add(Wallpaper);
+            Wallpaper.setBounds(0, 0, 1280, 720);    
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -757,7 +761,7 @@ public class SimulationScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_ingresos_DELLActionPerformed
 
     private void displayDashboard_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayDashboard_ButtonActionPerformed
-        Dashboard db = new Dashboard(this.puppetMaster);
+        Dashboard db = new Dashboard(puppetMasterMagenta, puppetMasterNeon);
     }//GEN-LAST:event_displayDashboard_ButtonActionPerformed
 
     private void PCwTG_MSIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PCwTG_MSIActionPerformed
@@ -770,7 +774,7 @@ public class SimulationScreen extends javax.swing.JFrame {
 
     private void back_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_ButtonActionPerformed
         this.setVisible(false);
-        Dashboard db = new Dashboard(this.puppetMaster);
+        Dashboard db = new Dashboard(puppetMasterMagenta, puppetMasterNeon);
     }//GEN-LAST:event_back_ButtonActionPerformed
 
     /**
@@ -803,7 +807,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SimulationScreen(puppetMaster).setVisible(true);
+                new SimulationScreen(puppetMasterMagenta, puppetMasterNeon).setVisible(true);
             }
         });
     }

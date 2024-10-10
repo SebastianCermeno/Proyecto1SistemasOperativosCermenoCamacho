@@ -44,7 +44,6 @@ public class LogicMaster {
     public int currentDay = 0;
     public int workDays = 10;
     public int dayInSeconds = 0;
-    public int computerDeliverDeadline = 0;
     public int initialMotherBoardWorkers = 0;
     public int initialCPUWorkers = 0;
     public int initialRAMWorkers = 0;
@@ -57,7 +56,7 @@ public class LogicMaster {
     }
 
     public void setComputerDeliverDeadline(int computerDeliverDeadline) {
-        this.computerDeliverDeadline = computerDeliverDeadline;
+        this.workDays = computerDeliverDeadline;
     }
 
     public void setInitialMotherBoardWorkers(int initialMotherBoardWorkers) {
@@ -84,6 +83,60 @@ public class LogicMaster {
         this.initialAssemblyWorkers = initialAssemblyWorkers;
     }
 
+    public void updateWorkers(boolean modeSwitch, int pointer) {
+        if (modeSwitch == true) {
+            switch (pointer) {
+                case 0:
+                this.motherboardWorkers.append(new Worker(1, 2));
+                break;
+                case 1:
+                    this.cpuWorkers.append(new Worker(1, 2));
+                    break;
+                case 2:
+                    this.ramWorkers.append(new Worker(3,1));
+                    break;
+                case 3:
+                    this.psuWorkers.append(new Worker(3,1));
+                    break;
+                case 4:
+                    this.graphicsWorkers.append(new Worker(1, 3));
+                    break;
+                case 5:
+                    this.assemblyWorkers.append(new Worker(true));
+                    break;
+                default:
+                    break;
+            }
+        }
+        else {
+            switch (pointer) {
+                case 0:
+                    this.motherboardWorkers.popLast();
+                    break;
+                case 1:
+                    this.cpuWorkers.popLast();
+                    break;
+                case 2:
+                    this.ramWorkers.popLast();
+                    break;
+                case 3:
+                    this.psuWorkers.popLast();
+                    break;
+                case 4:
+                    this.graphicsWorkers.popLast();
+                    break;
+                case 5:
+                    this.assemblyWorkers.popLast();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    LogicMaster() {
+        
+    }
     
     // Inner Classes (Data Structures)
     private class WorkerLinkedList {
@@ -568,9 +621,9 @@ public class LogicMaster {
             this.setInitialpsuWorkers(valuesArray[5]);
             this.setInitialGraphicsWorkers(valuesArray[6]);
             this.setInitialAssemblyWorkers(valuesArray[7]);
-            JOptionPane.showMessageDialog(null, "¡Carga Exitosa!");
+            JOptionPane.showMessageDialog(null, "ï¿½Carga Exitosa!");
         }else{
-            JOptionPane.showMessageDialog(null, "No ha seleccionado ningún archivo.");
+            JOptionPane.showMessageDialog(null, "No ha seleccionado ningï¿½n archivo.");
         }
     }
 
@@ -586,7 +639,7 @@ public class LogicMaster {
         } catch (IOException e) {
             e.printStackTrace();
         } catch (NumberFormatException e) {
-            System.out.println("Error: asegúrate de que el archivo contiene solo números enteros.");
+            System.out.println("Error: asegï¿½rate de que el archivo contiene solo nï¿½meros enteros.");
         }
         return array;
     }
