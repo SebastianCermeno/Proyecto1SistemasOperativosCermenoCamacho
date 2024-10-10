@@ -20,9 +20,11 @@ public class SimulationScreen extends javax.swing.JFrame {
      * Creates new form SimulationScreen
      */
     public SimulationScreen(LogicMaster dellController, LogicMaster msiController) {
-        initComponents();
         this.puppetMasterMagenta = dellController;
         this.puppetMasterNeon = msiController;
+        initComponents();
+        this.summonPiecesData();
+        this.summonCompletePCData();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
@@ -208,13 +210,13 @@ public class SimulationScreen extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Con Tarjeta Gr·fica:");
+        jLabel6.setText("Con Tarjeta Gr√°fica:");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(20, 610, 150, 30);
 
         jLabel8.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Elementos en AlmacÈn");
+        jLabel8.setText("Elementos en Almac√©n");
         getContentPane().add(jLabel8);
         jLabel8.setBounds(400, 230, 230, 30);
 
@@ -226,7 +228,7 @@ public class SimulationScreen extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("Est·ndar:");
+        jLabel10.setText("Est√°ndar:");
         getContentPane().add(jLabel10);
         jLabel10.setBounds(20, 570, 80, 30);
 
@@ -266,7 +268,7 @@ public class SimulationScreen extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setText("DÌas para Entrega:");
+        jLabel12.setText("D√≠as para Entrega:");
         getContentPane().add(jLabel12);
         jLabel12.setBounds(470, 640, 150, 30);
 
@@ -309,14 +311,14 @@ public class SimulationScreen extends javax.swing.JFrame {
 
         jLabel18.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel18.setText("de AlimentaciÛn");
+        jLabel18.setText("de Alimentaci√≥n");
         jLabel18.setToolTipText("");
         getContentPane().add(jLabel18);
         jLabel18.setBounds(70, 400, 220, 30);
 
         jLabel19.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel19.setText("De Tarjetas Gr·ficas");
+        jLabel19.setText("De Tarjetas Gr√°ficas");
         jLabel19.setToolTipText("");
         getContentPane().add(jLabel19);
         jLabel19.setBounds(40, 430, 220, 30);
@@ -466,7 +468,7 @@ public class SimulationScreen extends javax.swing.JFrame {
 
         jLabel32.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel32.setText("Est·ndar:");
+        jLabel32.setText("Est√°ndar:");
         getContentPane().add(jLabel32);
         jLabel32.setBounds(660, 570, 80, 30);
 
@@ -509,14 +511,14 @@ public class SimulationScreen extends javax.swing.JFrame {
 
         jLabel39.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel39.setText("De Tarjetas Gr·ficas");
+        jLabel39.setText("De Tarjetas Gr√°ficas");
         jLabel39.setToolTipText("");
         getContentPane().add(jLabel39);
         jLabel39.setBounds(680, 430, 220, 30);
 
         jLabel40.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel40.setText("de AlimentaciÛn");
+        jLabel40.setText("de Alimentaci√≥n");
         jLabel40.setToolTipText("");
         getContentPane().add(jLabel40);
         jLabel40.setBounds(710, 400, 220, 30);
@@ -607,7 +609,7 @@ public class SimulationScreen extends javax.swing.JFrame {
 
         jLabel52.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel52.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel52.setText("Elementos en AlmacÈn");
+        jLabel52.setText("Elementos en Almac√©n");
         getContentPane().add(jLabel52);
         jLabel52.setBounds(1040, 230, 230, 30);
 
@@ -771,7 +773,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         pauseSimulation_Button.setBackground(new java.awt.Color(204, 204, 204));
         pauseSimulation_Button.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
         pauseSimulation_Button.setForeground(new java.awt.Color(51, 51, 51));
-        pauseSimulation_Button.setText("Pausar SimulaciÛn");
+        pauseSimulation_Button.setText("Pausar Simulaci√≥n");
         pauseSimulation_Button.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         pauseSimulation_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -812,10 +814,39 @@ public class SimulationScreen extends javax.swing.JFrame {
         this.setVisible(false);
         Dashboard db = new Dashboard(puppetMasterMagenta, puppetMasterNeon);
     }//GEN-LAST:event_back_ButtonActionPerformed
-
+  
     private void pauseSimulation_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseSimulation_ButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pauseSimulation_ButtonActionPerformed
+
+  // +++++++++++++++++ FUNCTIONS +++++++++++++++++
+    private void summonPiecesData() {
+        int[] dellData = puppetMasterMagenta.sendPiecesData();
+        int[] msiData = puppetMasterNeon.sendPiecesData();
+
+        placasBaseAlmacen_DELL.setText(String.valueOf(dellData[0]));
+        CPUalmacen_DELL.setText(String.valueOf(dellData[1]));
+        RAMalmacen_DELL.setText(String.valueOf(dellData[2]));
+        AlimentacionAlmacen_DELL.setText(String.valueOf(dellData[3]));
+        TGAlmacen_DELL.setText(String.valueOf(dellData[4]));
+
+        placasBaseAlmacen_MSI.setText(String.valueOf(msiData[0]));
+        CPUAlmacen_MSI.setText(String.valueOf(msiData[1]));
+        RAMalmacen_MSI.setText(String.valueOf(msiData[2]));
+        fuentesAlimAlmacen_MSI.setText(String.valueOf(msiData[3]));
+        TGalmacen_MSI.setText(String.valueOf(msiData[4]));
+    }
+
+    private void summonCompletePCData(){
+        int[] dellData = puppetMasterMagenta.sendComputerData();
+        int[] msiData = puppetMasterNeon.sendComputerData();
+
+        PCEstandar_DELL.setText(String.valueOf(dellData[0]));
+        PCwTG_DELL.setText(String.valueOf(dellData[1]));
+
+        PCEstandar_MSI.setText(String.valueOf(msiData[0]));
+        PCwTG_MSI.setText(String.valueOf(msiData[1]));
+    }
 
     /**
      * @param args the command line arguments

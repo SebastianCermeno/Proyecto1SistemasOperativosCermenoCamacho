@@ -83,6 +83,14 @@ public class LogicMaster {
         this.initialAssemblyWorkers = initialAssemblyWorkers;
     }
 
+    public int[] sendPiecesData() {
+        return this.myWarehouse.packAndMail();
+    }
+
+    public int[] sendComputerData() {
+        return this.finishedWarehouse.packAndMail();
+    }
+
     public void updateWorkers(boolean modeSwitch, int pointer) {
         if (modeSwitch == true) {
             switch (pointer) {
@@ -287,6 +295,11 @@ public class LogicMaster {
             availableRAMs = 0;
             availablePSUs = 0;
             availableGPUs = 0;
+        }
+
+        int[] packAndMail(){
+            int[] packedData = {availableMotherboards, availableCPUs, availableRAMs, availablePSUs, availableGPUs};
+            return packedData;
         }
 
         void addToWarehouse(int numberOfItems, int storageID){
@@ -540,6 +553,11 @@ public class LogicMaster {
             gamerPCs += quantity;
         }
 
+        public int[] packAndMail(){
+            int[] packedData = {standardPCs, gamerPCs};
+            return packedData;
+        }
+
         public void shareInventory(){
             System.out.println("PCs Regulares: " + standardPCs);
             System.out.println("PCs Gamer: " + gamerPCs);
@@ -557,45 +575,21 @@ public class LogicMaster {
     
     }
 
-    public void executeSimulation() throws InterruptedException { 
-        for (int i = 0; i < 3; i++) {
-            this.motherboardWorkers.append(new Worker(1, 2));
-        }
-
-        for (int i = 0; i < 3; i++){
-            this.cpuWorkers.append(new Worker(1, 2));
-        }
-
-        for (int i = 0; i < 2; i++) {
-            this.ramWorkers.append(new Worker(3,1));
-        }
-
-        for (int i = 0; i < 2; i++) {
-            this.psuWorkers.append(new Worker(3,1));
-        }
-
-        for (int i = 0; i < 2; i++) {
-            this.graphicsWorkers.append(new Worker(1, 3));
-        }
-
-        for (int i = 0; i < 1; i++) {
-            this.assemblyWorkers.append(new Worker(true));
-        }
-
+    public void simulateDay() throws InterruptedException { 
         this.specificPolicy = new CompanyPolicy(3, 1, 1, 5, 6, 5, 1);
 
         currentDay = 0;
-        Semaphore zetta = new Semaphore(1);
-        Semaphore geara = new Semaphore(1);
+        Semaphore piecesGatekeeper = new Semaphore(1);
+        Semaphore finishedPCGatekeper = new Semaphore(1);
         
-        for (int i = currentDay; i < 100; i++) {
-            PiecesPipeline scrimblis = new PiecesPipeline(zetta, this);
-            ProjectManagerPipeline dandadan = new ProjectManagerPipeline();
-            AssemblyPipeline elconstructordeclashofclans = new AssemblyPipeline(zetta, geara, this);
-            scrimblis.start();
-            scrimblis.join();
-            elconstructordeclashofclans.start();
-            dandadan.start();
+        for (int i = currentDay; i < workDays; i++) {
+            PiecesPipeline piecesRunnable = new PiecesPipeline(piecesGatekeeper, this);
+            ProjectManagerPipeline managerRunnable = new ProjectManagerPipeline();
+            AssemblyPipeline builderPCRunnable = new AssemblyPipeline(piecesGatekeeper, finishedPCGatekeper, this);
+            piecesRunnable.start();
+            piecesRunnable.join();
+            builderPCRunnable.start();
+            managerRunnable.start();
 
             while (Thread.activeCount() > 1) {
                 continue;
