@@ -39,12 +39,6 @@ public class SimulationScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        Slider_placasBase_DELL = new javax.swing.JSlider();
-        Slider_CPU_DELL = new javax.swing.JSlider();
-        Slider_RAM_DELL = new javax.swing.JSlider();
-        Slider_FuentesAlim_DELL = new javax.swing.JSlider();
-        Slider_TG_DELL = new javax.swing.JSlider();
-        Slider_Ensambladores_DELL = new javax.swing.JSlider();
         placasBaseAlmacen_DELL = new javax.swing.JTextField();
         CPUalmacen_DELL = new javax.swing.JTextField();
         RAMalmacen_DELL = new javax.swing.JTextField();
@@ -96,17 +90,13 @@ public class SimulationScreen extends javax.swing.JFrame {
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
-        jSlider7 = new javax.swing.JSlider();
         jLabel35 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         TGalmacen_MSI = new javax.swing.JTextField();
-        jSlider8 = new javax.swing.JSlider();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
-        jSlider9 = new javax.swing.JSlider();
-        jSlider10 = new javax.swing.JSlider();
         jLabel42 = new javax.swing.JLabel();
         fuentesAlimAlmacen_MSI = new javax.swing.JTextField();
         jLabel43 = new javax.swing.JLabel();
@@ -115,10 +105,8 @@ public class SimulationScreen extends javax.swing.JFrame {
         jLabel46 = new javax.swing.JLabel();
         CPUAlmacen_MSI = new javax.swing.JTextField();
         jLabel47 = new javax.swing.JLabel();
-        jSlider11 = new javax.swing.JSlider();
         jLabel48 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
-        jSlider12 = new javax.swing.JSlider();
         jLabel50 = new javax.swing.JLabel();
         placasBaseAlmacen_MSI = new javax.swing.JTextField();
         jLabel51 = new javax.swing.JLabel();
@@ -136,6 +124,19 @@ public class SimulationScreen extends javax.swing.JFrame {
         RAMalmacen_MSI = new javax.swing.JTextField();
         jLabel58 = new javax.swing.JLabel();
         back_Button = new javax.swing.JButton();
+        jSpinner1 = new javax.swing.JSpinner();
+        jSpinner2 = new javax.swing.JSpinner();
+        jSpinner3 = new javax.swing.JSpinner();
+        jSpinner4 = new javax.swing.JSpinner();
+        jSpinner5 = new javax.swing.JSpinner();
+        jSpinner6 = new javax.swing.JSpinner();
+        jSpinner7 = new javax.swing.JSpinner();
+        jSpinner8 = new javax.swing.JSpinner();
+        jSpinner9 = new javax.swing.JSpinner();
+        jSpinner10 = new javax.swing.JSpinner();
+        jSpinner11 = new javax.swing.JSpinner();
+        jSpinner12 = new javax.swing.JSpinner();
+        pauseSimulation_Button = new javax.swing.JButton();
         Wallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -146,30 +147,6 @@ public class SimulationScreen extends javax.swing.JFrame {
         jPanel1.setLayout(null);
         getContentPane().add(jPanel1);
         jPanel1.setBounds(1286, 0, 0, 0);
-
-        Slider_placasBase_DELL.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(Slider_placasBase_DELL);
-        Slider_placasBase_DELL.setBounds(200, 280, 200, 11);
-
-        Slider_CPU_DELL.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(Slider_CPU_DELL);
-        Slider_CPU_DELL.setBounds(200, 320, 200, 11);
-
-        Slider_RAM_DELL.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(Slider_RAM_DELL);
-        Slider_RAM_DELL.setBounds(200, 360, 200, 11);
-
-        Slider_FuentesAlim_DELL.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(Slider_FuentesAlim_DELL);
-        Slider_FuentesAlim_DELL.setBounds(200, 400, 200, 11);
-
-        Slider_TG_DELL.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(Slider_TG_DELL);
-        Slider_TG_DELL.setBounds(200, 440, 200, 11);
-
-        Slider_Ensambladores_DELL.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(Slider_Ensambladores_DELL);
-        Slider_Ensambladores_DELL.setBounds(200, 480, 200, 11);
 
         placasBaseAlmacen_DELL.setEditable(false);
         placasBaseAlmacen_DELL.setBackground(new java.awt.Color(255, 255, 255));
@@ -368,37 +345,37 @@ public class SimulationScreen extends javax.swing.JFrame {
         jLabel22.setForeground(new java.awt.Color(0, 0, 0));
         jLabel22.setText("X");
         getContentPane().add(jLabel22);
-        jLabel22.setBounds(410, 310, 20, 30);
+        jLabel22.setBounds(410, 310, 20, 20);
 
         jLabel24.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("X");
         getContentPane().add(jLabel24);
-        jLabel24.setBounds(410, 350, 20, 30);
+        jLabel24.setBounds(410, 350, 20, 20);
 
         jLabel23.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(0, 0, 0));
         jLabel23.setText("X");
         getContentPane().add(jLabel23);
-        jLabel23.setBounds(410, 390, 20, 30);
+        jLabel23.setBounds(410, 390, 20, 20);
 
         jLabel25.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(0, 0, 0));
         jLabel25.setText("X");
         getContentPane().add(jLabel25);
-        jLabel25.setBounds(410, 430, 20, 30);
+        jLabel25.setBounds(410, 430, 20, 20);
 
         jLabel26.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(0, 0, 0));
         jLabel26.setText("X");
         getContentPane().add(jLabel26);
-        jLabel26.setBounds(410, 470, 20, 30);
+        jLabel26.setBounds(410, 470, 20, 20);
 
         jLabel27.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(0, 0, 0));
         jLabel27.setText("X");
         getContentPane().add(jLabel27);
-        jLabel27.setBounds(410, 270, 20, 30);
+        jLabel27.setBounds(410, 270, 20, 20);
 
         jLabel28.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(0, 0, 0));
@@ -453,7 +430,7 @@ public class SimulationScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(displayDashboard_Button);
-        displayDashboard_Button.setBounds(530, 680, 130, 30);
+        displayDashboard_Button.setBounds(550, 680, 130, 30);
 
         PCwTG_MSI.setEditable(false);
         PCwTG_MSI.setBackground(new java.awt.Color(255, 255, 255));
@@ -508,15 +485,11 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel34);
         jLabel34.setBounds(710, 470, 120, 30);
 
-        jSlider7.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jSlider7);
-        jSlider7.setBounds(840, 480, 200, 11);
-
         jLabel35.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(0, 0, 0));
         jLabel35.setText("X");
         getContentPane().add(jLabel35);
-        jLabel35.setBounds(1050, 470, 20, 30);
+        jLabel35.setBounds(1050, 470, 20, 20);
 
         jLabel37.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel37.setForeground(new java.awt.Color(0, 0, 0));
@@ -530,15 +503,11 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(TGalmacen_MSI);
         TGalmacen_MSI.setBounds(1090, 430, 80, 30);
 
-        jSlider8.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jSlider8);
-        jSlider8.setBounds(840, 440, 200, 11);
-
         jLabel38.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(0, 0, 0));
         jLabel38.setText("X");
         getContentPane().add(jLabel38);
-        jLabel38.setBounds(1050, 430, 20, 30);
+        jLabel38.setBounds(1050, 430, 20, 20);
 
         jLabel39.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(0, 0, 0));
@@ -560,14 +529,6 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel41);
         jLabel41.setBounds(750, 380, 140, 30);
 
-        jSlider9.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jSlider9);
-        jSlider9.setBounds(840, 400, 200, 11);
-
-        jSlider10.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jSlider10);
-        jSlider10.setBounds(840, 360, 200, 11);
-
         jLabel42.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel42.setForeground(new java.awt.Color(0, 0, 0));
         jLabel42.setText("De Memoria R.A.M.");
@@ -584,7 +545,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         jLabel43.setForeground(new java.awt.Color(0, 0, 0));
         jLabel43.setText("X");
         getContentPane().add(jLabel43);
-        jLabel43.setBounds(1050, 390, 20, 30);
+        jLabel43.setBounds(1050, 390, 20, 20);
 
         jLabel44.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(0, 0, 0));
@@ -614,11 +575,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         jLabel47.setForeground(new java.awt.Color(0, 0, 0));
         jLabel47.setText("X");
         getContentPane().add(jLabel47);
-        jLabel47.setBounds(1050, 310, 20, 30);
-
-        jSlider11.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jSlider11);
-        jSlider11.setBounds(840, 320, 200, 11);
+        jLabel47.setBounds(1050, 310, 20, 20);
 
         jLabel48.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel48.setForeground(new java.awt.Color(0, 0, 0));
@@ -632,15 +589,11 @@ public class SimulationScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel49);
         jLabel49.setBounds(720, 270, 120, 30);
 
-        jSlider12.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jSlider12);
-        jSlider12.setBounds(840, 280, 200, 11);
-
         jLabel50.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel50.setForeground(new java.awt.Color(0, 0, 0));
         jLabel50.setText("X");
         getContentPane().add(jLabel50);
-        jLabel50.setBounds(1050, 270, 20, 30);
+        jLabel50.setBounds(1050, 270, 20, 20);
 
         placasBaseAlmacen_MSI.setEditable(false);
         placasBaseAlmacen_MSI.setBackground(new java.awt.Color(255, 255, 255));
@@ -656,7 +609,7 @@ public class SimulationScreen extends javax.swing.JFrame {
 
         jLabel52.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel52.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel52.setText("Elementos en Almacen");
+        jLabel52.setText("Elementos en Almacén");
         getContentPane().add(jLabel52);
         jLabel52.setBounds(1040, 230, 230, 30);
 
@@ -730,7 +683,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         jLabel58.setForeground(new java.awt.Color(0, 0, 0));
         jLabel58.setText("X");
         getContentPane().add(jLabel58);
-        jLabel58.setBounds(1050, 350, 20, 30);
+        jLabel58.setBounds(1050, 350, 20, 20);
 
         back_Button.setBackground(new java.awt.Color(204, 204, 204));
         back_Button.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
@@ -744,13 +697,96 @@ public class SimulationScreen extends javax.swing.JFrame {
         });
         getContentPane().add(back_Button);
         back_Button.setBounds(20, 680, 130, 30);
-        try {
-            Wallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Modelos - Proyecto SSOO 1.png"))); // NOI18N
-            getContentPane().add(Wallpaper);
-            Wallpaper.setBounds(0, 0, 1280, 720);    
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
+
+        jSpinner1.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
+        jSpinner1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jSpinner1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jSpinner1);
+        jSpinner1.setBounds(340, 430, 60, 22);
+
+        jSpinner2.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
+        jSpinner2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jSpinner2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jSpinner2);
+        jSpinner2.setBounds(340, 390, 60, 22);
+
+        jSpinner3.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
+        jSpinner3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jSpinner3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jSpinner3);
+        jSpinner3.setBounds(340, 350, 60, 22);
+
+        jSpinner4.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
+        jSpinner4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jSpinner4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jSpinner4);
+        jSpinner4.setBounds(340, 310, 60, 22);
+
+        jSpinner5.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
+        jSpinner5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jSpinner5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jSpinner5);
+        jSpinner5.setBounds(340, 270, 60, 22);
+
+        jSpinner6.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
+        jSpinner6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jSpinner6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jSpinner6);
+        jSpinner6.setBounds(340, 470, 60, 22);
+
+        jSpinner7.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
+        jSpinner7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jSpinner7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jSpinner7);
+        jSpinner7.setBounds(980, 470, 60, 22);
+
+        jSpinner8.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
+        jSpinner8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jSpinner8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jSpinner8);
+        jSpinner8.setBounds(980, 430, 60, 22);
+
+        jSpinner9.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
+        jSpinner9.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jSpinner9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jSpinner9);
+        jSpinner9.setBounds(980, 390, 60, 22);
+
+        jSpinner10.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
+        jSpinner10.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jSpinner10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jSpinner10);
+        jSpinner10.setBounds(980, 350, 60, 22);
+
+        jSpinner11.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
+        jSpinner11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jSpinner11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jSpinner11);
+        jSpinner11.setBounds(980, 310, 60, 22);
+
+        jSpinner12.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
+        jSpinner12.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jSpinner12.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jSpinner12);
+        jSpinner12.setBounds(980, 270, 60, 22);
+
+        pauseSimulation_Button.setBackground(new java.awt.Color(204, 204, 204));
+        pauseSimulation_Button.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
+        pauseSimulation_Button.setForeground(new java.awt.Color(51, 51, 51));
+        pauseSimulation_Button.setText("Pausar Simulación");
+        pauseSimulation_Button.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pauseSimulation_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pauseSimulation_ButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(pauseSimulation_Button);
+        pauseSimulation_Button.setBounds(1130, 680, 130, 30);
+
+        Wallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Modelos - Proyecto SSOO 1.png"))); // NOI18N
+        getContentPane().add(Wallpaper);
+        Wallpaper.setBounds(0, 0, 1280, 720);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -778,8 +814,12 @@ public class SimulationScreen extends javax.swing.JFrame {
         this.setVisible(false);
         Dashboard db = new Dashboard(puppetMasterMagenta, puppetMasterNeon);
     }//GEN-LAST:event_back_ButtonActionPerformed
+  
+    private void pauseSimulation_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseSimulation_ButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pauseSimulation_ButtonActionPerformed
 
-    // +++++++++++++++++ FUNCTIONS +++++++++++++++++
+  // +++++++++++++++++ FUNCTIONS +++++++++++++++++
     private void summonPiecesData() {
         int[] dellData = puppetMasterMagenta.sendPiecesData();
         int[] msiData = puppetMasterNeon.sendPiecesData();
@@ -807,6 +847,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         PCEstandar_MSI.setText(String.valueOf(msiData[0]));
         PCwTG_MSI.setText(String.valueOf(msiData[1]));
     }
+
     /**
      * @param args the command line arguments
      */
@@ -858,12 +899,6 @@ public class SimulationScreen extends javax.swing.JFrame {
     private javax.swing.JTextField PMwageLoss_MSI;
     private javax.swing.JTextField RAMalmacen_DELL;
     private javax.swing.JTextField RAMalmacen_MSI;
-    private javax.swing.JSlider Slider_CPU_DELL;
-    private javax.swing.JSlider Slider_Ensambladores_DELL;
-    private javax.swing.JSlider Slider_FuentesAlim_DELL;
-    private javax.swing.JSlider Slider_RAM_DELL;
-    private javax.swing.JSlider Slider_TG_DELL;
-    private javax.swing.JSlider Slider_placasBase_DELL;
     private javax.swing.JTextField TGAlmacen_DELL;
     private javax.swing.JTextField TGalmacen_MSI;
     private javax.swing.JLabel Wallpaper;
@@ -933,13 +968,20 @@ public class SimulationScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSlider jSlider10;
-    private javax.swing.JSlider jSlider11;
-    private javax.swing.JSlider jSlider12;
-    private javax.swing.JSlider jSlider7;
-    private javax.swing.JSlider jSlider8;
-    private javax.swing.JSlider jSlider9;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jSpinner10;
+    private javax.swing.JSpinner jSpinner11;
+    private javax.swing.JSpinner jSpinner12;
+    private javax.swing.JSpinner jSpinner2;
+    private javax.swing.JSpinner jSpinner3;
+    private javax.swing.JSpinner jSpinner4;
+    private javax.swing.JSpinner jSpinner5;
+    private javax.swing.JSpinner jSpinner6;
+    private javax.swing.JSpinner jSpinner7;
+    private javax.swing.JSpinner jSpinner8;
+    private javax.swing.JSpinner jSpinner9;
     private javax.swing.JTextField jTextField10;
+    private javax.swing.JButton pauseSimulation_Button;
     private javax.swing.JTextField placasBaseAlmacen_DELL;
     private javax.swing.JTextField placasBaseAlmacen_MSI;
     // End of variables declaration//GEN-END:variables
