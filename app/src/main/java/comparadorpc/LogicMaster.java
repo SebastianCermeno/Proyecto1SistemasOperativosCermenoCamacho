@@ -93,6 +93,30 @@ public class LogicMaster {
         return this.finishedWarehouse.packAndMail();
     }
 
+    public int[] retrieveWorkerDistribution(){
+        int[] workerDistribution = {motherboardWorkers.length, cpuWorkers.length, ramWorkers.length, psuWorkers.length, graphicsWorkers.length, assemblyWorkers.length};
+        return workerDistribution;
+    }
+
+    public int retrieveListLength (int listPointer){
+        switch (listPointer) {
+            case 0:
+                return motherboardWorkers.length;
+            case 1:
+                return cpuWorkers.length;
+            case 2:
+                return ramWorkers.length;
+            case 3:
+                return psuWorkers.length;
+            case 4:
+                return graphicsWorkers.length;
+            case 5:
+                return assemblyWorkers.length;
+            default:
+                return 0;
+        }
+    }
+
     public void updateWorkers(boolean modeSwitch, int pointer) {
         if (modeSwitch == true) {
             switch (pointer) {
@@ -144,13 +168,15 @@ public class LogicMaster {
         }
     }
 
-    LogicMaster() {
+    LogicMaster(CompanyPolicy basePolicy) {
         updateWorkers(true, 0);
         updateWorkers(true, 1);
         updateWorkers(true, 2);
         updateWorkers(true, 3);
         updateWorkers(true, 4);
         updateWorkers(true, 5);
+
+        specificPolicy = basePolicy;
     }
     
     // Inner Classes (Data Structures)
@@ -444,7 +470,6 @@ public class LogicMaster {
                 warehouseController.release();
             }
             catch (InterruptedException exc) {
-                System.out.println("PiecesPipelineInterrupted");
                 System.out.println(exc);
             }
         }
@@ -585,7 +610,6 @@ public class LogicMaster {
 
     public void simulateDay() throws InterruptedException { 
         iterateFinish = false;
-        this.specificPolicy = new CompanyPolicy(3, 1, 1, 5, 6, 5, 1);
 
         Semaphore piecesGatekeeper = new Semaphore(1);
         Semaphore finishedPCGatekeper = new Semaphore(1);

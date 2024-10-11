@@ -9,6 +9,9 @@ import java.util.concurrent.TimeUnit;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
 import comparadorpc.LogicMaster;
 
 /**
@@ -46,6 +49,19 @@ public class SimulationScreen extends javax.swing.JFrame {
     public static LogicMaster puppetMasterNeon;
     private boolean pauseController = false;
     
+    public int dellMoboCount = 0;
+    public int dellCPUCount = 0;
+    public int dellRAMCount = 0;
+    public int dellPSUCount = 0;
+    public int dellGPUCount = 0;
+    public int dellAssemblyCount = 0;
+    
+    public int msiMoboCount = 0;
+    public int msiCPUCount = 0;
+    public int msiRAMCount = 0;
+    public int msiPSUCount = 0;
+    public int msiGPUCount = 0;
+    public int msiAssemblyCount = 0;
     /**
      * Creates new form SimulationScreen
      */
@@ -55,6 +71,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         initComponents();
         this.summonPiecesData();
         this.summonCompletePCData();
+        this.initializeSwappers();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
@@ -63,7 +80,6 @@ public class SimulationScreen extends javax.swing.JFrame {
         int counter = 0;
         int finalizer = puppetMasterMagenta.workDays;
         internalSimulation(counter, finalizer);
-        System.out.println("freedom???");
     }
 
     private void internalSimulation(int counter, int limit) throws InterruptedException{
@@ -78,7 +94,6 @@ public class SimulationScreen extends javax.swing.JFrame {
         }
         summonPiecesData();
         summonCompletePCData();
-        System.out.println("escaped iteration" + counter);
         match++;
         if (match < limit) {
             internalSimulation(match, limit);
@@ -785,72 +800,144 @@ public class SimulationScreen extends javax.swing.JFrame {
         jSpinner1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jSpinner1);
         jSpinner1.setBounds(340, 430, 60, 22);
+        ChangeListener dellGPUersUpdate = new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                // modifyWorkers(0, 4, jSpinner1);
+            }
+        };
+        jSpinner1.addChangeListener(dellGPUersUpdate);
 
         jSpinner2.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
         jSpinner2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jSpinner2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jSpinner2);
         jSpinner2.setBounds(340, 390, 60, 22);
+        ChangeListener dellPSUersUpdate = new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                // modifyWorkers(0, 3, jSpinner2);
+            }
+        };
+        jSpinner2.addChangeListener(dellPSUersUpdate);
 
         jSpinner3.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
         jSpinner3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jSpinner3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jSpinner3);
         jSpinner3.setBounds(340, 350, 60, 22);
+        ChangeListener dellRAMersUpdate = new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                // modifyWorkers(0, 2, jSpinner3);
+            }
+        };
+        jSpinner3.addChangeListener(dellRAMersUpdate);
 
         jSpinner4.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
         jSpinner4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jSpinner4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jSpinner4);
         jSpinner4.setBounds(340, 310, 60, 22);
+        ChangeListener dellCPUersUpdate = new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                // modifyWorkers(0, 1, jSpinner4);
+            }
+        };
+        jSpinner4.addChangeListener(dellCPUersUpdate);
 
         jSpinner5.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
         jSpinner5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jSpinner5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jSpinner5);
         jSpinner5.setBounds(340, 270, 60, 22);
+        ChangeListener dellmotheboardersUpdate = new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                // modifyWorkers(0, 0, jSpinner5);
+            }
+        };
+        jSpinner5.addChangeListener(dellmotheboardersUpdate);
 
         jSpinner6.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
         jSpinner6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jSpinner6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jSpinner6);
         jSpinner6.setBounds(340, 470, 60, 22);
+        ChangeListener dellWorkersUpdate = new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                // modifyWorkers(0, 5, jSpinner6);
+            }
+        };
+        jSpinner6.addChangeListener(dellWorkersUpdate);
 
         jSpinner7.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
         jSpinner7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jSpinner7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jSpinner7);
         jSpinner7.setBounds(980, 470, 60, 22);
+        ChangeListener msiWorkers = new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                // modifyWorkers(1, 5, jSpinner7);
+            }
+        };
+        jSpinner7.addChangeListener(msiWorkers);
 
         jSpinner8.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
         jSpinner8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jSpinner8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jSpinner8);
         jSpinner8.setBounds(980, 430, 60, 22);
+        ChangeListener msiGPUers = new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                // modifyWorkers(1, 4, jSpinner8);
+            }
+        };
+        jSpinner8.addChangeListener(msiGPUers);
 
         jSpinner9.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
         jSpinner9.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jSpinner9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jSpinner9);
         jSpinner9.setBounds(980, 390, 60, 22);
+        ChangeListener msiPSUers = new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                // modifyWorkers(1, 3, jSpinner9);
+            }
+        };        
+        jSpinner9.addChangeListener(msiPSUers);
 
         jSpinner10.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
         jSpinner10.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jSpinner10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jSpinner10);
         jSpinner10.setBounds(980, 350, 60, 22);
+        ChangeListener msiRAMers = new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                // modifyWorkers(1, 2, jSpinner10);
+            }
+        };
+        jSpinner10.addChangeListener(msiRAMers);
 
         jSpinner11.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
         jSpinner11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jSpinner11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jSpinner11);
         jSpinner11.setBounds(980, 310, 60, 22);
+        ChangeListener msiCPUers = new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                // modifyWorkers(1, 1, jSpinner11);
+            }
+        };
+        jSpinner11.addChangeListener(msiCPUers);
 
         jSpinner12.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
         jSpinner12.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jSpinner12.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jSpinner12);
         jSpinner12.setBounds(980, 270, 60, 22);
+        ChangeListener msiMotherboarders = new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                // modifyWorkers(1, 0, jSpinner12);
+            }
+        };
+        jSpinner12.addChangeListener(msiMotherboarders);
 
         pauseSimulation_Button.setBackground(new java.awt.Color(204, 204, 204));
         pauseSimulation_Button.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
@@ -864,8 +951,11 @@ public class SimulationScreen extends javax.swing.JFrame {
         });
         getContentPane().add(pauseSimulation_Button);
         pauseSimulation_Button.setBounds(1130, 680, 130, 30);
-
-        Wallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Modelos - Proyecto SSOO 1.png"))); // NOI18N
+        try {
+            Wallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Modelos - Proyecto SSOO 1.png"))); // NOI18N
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
         getContentPane().add(Wallpaper);
         Wallpaper.setBounds(0, 0, 1280, 720);
         pack();
@@ -929,6 +1019,80 @@ public class SimulationScreen extends javax.swing.JFrame {
         PCwTG_MSI.setText(String.valueOf(msiData[1]));
     }
 
+    private void initializeSwappers(){
+        int[] dellData = puppetMasterMagenta.retrieveWorkerDistribution();
+        int[] msiData = puppetMasterNeon.retrieveWorkerDistribution();
+        System.out.println(dellData[0] + ' ' + dellData[1]);
+
+        jSpinner5.setValue(dellData[0]);
+        dellMoboCount = dellData[0];
+        jSpinner4.setValue(dellData[1]);
+        dellCPUCount = dellData[1];
+        jSpinner3.setValue(dellData[2]);
+        dellRAMCount = dellData[2];
+        jSpinner2.setValue(dellData[3]);
+        dellPSUCount = dellData[3];
+        jSpinner1.setValue(dellData[4]);
+        dellGPUCount = dellData[4];
+        jSpinner6.setValue(dellData[5]);
+        dellAssemblyCount = dellData[5];
+
+        jSpinner12.setValue(msiData[0]);
+        msiMoboCount = msiData[0];
+        jSpinner11.setValue(msiData[1]);
+        msiCPUCount = msiData[1];
+        jSpinner10.setValue(msiData[2]);
+        msiRAMCount = msiData[2];
+        jSpinner9.setValue(msiData[3]);
+        msiPSUCount = msiData[3];
+        jSpinner8.setValue(msiData[4]);
+        msiGPUCount = msiData[4];
+        jSpinner7.setValue(msiData[5]);
+        msiAssemblyCount = msiData[5];
+    }
+
+    private void modifyWorkers(int puppetPointer, int listPointer, JSpinner reference){
+        if (puppetPointer == 0) {
+            int listLength;
+            listLength = puppetMasterMagenta.retrieveListLength(listPointer);
+            if (listLength == 1 && (int)reference.getValue() == 0){
+                reference.setValue(1);
+            }
+            else if (puppetMasterMagenta.numberOfWorkers <= (dellMoboCount+dellCPUCount+dellRAMCount+dellPSUCount+dellGPUCount+dellAssemblyCount) && (int)reference.getValue() > listLength) {
+                reference.setValue(listLength);
+            }
+            else {
+                if ((int)reference.getValue() < listLength) {
+                    puppetMasterMagenta.updateWorkers(false, listPointer);
+                    initializeSwappers();
+                }
+                else {
+                    puppetMasterMagenta.updateWorkers(true, listPointer);
+                    initializeSwappers();
+                }
+            }
+        }
+        else if (puppetPointer == 1) {
+            int listLength;
+            listLength = puppetMasterNeon.retrieveListLength(listPointer);
+            if (listLength == 1 && (int)reference.getValue() == 0){
+                reference.setValue(1);
+            }
+            else if (puppetMasterNeon.numberOfWorkers <= (msiMoboCount+msiCPUCount+msiRAMCount+msiPSUCount+msiGPUCount+msiAssemblyCount) && (int)reference.getValue() > listLength) {
+                reference.setValue(listLength);
+            }
+            else {
+                if ((int)reference.getValue() < listLength) {
+                    puppetMasterNeon.updateWorkers(false, listPointer);
+                    initializeSwappers();
+                }
+                else {
+                    puppetMasterNeon.updateWorkers(true, listPointer);
+                    initializeSwappers();
+                }
+            }
+        }
+    }
     private void simulate() throws InterruptedException{
         while (pauseController == true) {
             continue;

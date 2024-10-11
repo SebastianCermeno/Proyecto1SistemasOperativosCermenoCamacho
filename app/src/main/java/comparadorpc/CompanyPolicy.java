@@ -14,7 +14,6 @@ public class CompanyPolicy {
         for (int i = 0; i<numberOfGamingPC; i++) {
             productionSchedule.append(1);
         }
-        System.out.println(productionSchedule.length);
 
         motherboardsNeeded = motherNum;
         cpuNeeded = cpuNum;
