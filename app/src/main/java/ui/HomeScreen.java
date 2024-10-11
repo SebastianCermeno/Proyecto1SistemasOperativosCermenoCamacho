@@ -52,7 +52,12 @@ public class HomeScreen extends javax.swing.JFrame {
         openSimulationScreenButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(0, 0, 0)));
         openSimulationScreenButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                openSimulationScreenButtonActionPerformed(evt);
+                try {
+                    openSimulationScreenButtonActionPerformed(evt);
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
         jPanel1.add(openSimulationScreenButton);
@@ -112,7 +117,7 @@ public class HomeScreen extends javax.swing.JFrame {
         //this.puppetMaster.FileChooser();
     }//GEN-LAST:event_uploadTxtButtonActionPerformed
 
-    private void openSimulationScreenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openSimulationScreenButtonActionPerformed
+    private void openSimulationScreenButtonActionPerformed(java.awt.event.ActionEvent evt) throws InterruptedException {//GEN-FIRST:event_openSimulationScreenButtonActionPerformed
         SimulationScreen w2 = new SimulationScreen(puppetMasterMagenta, puppetMasterNeon);
         this.dispose();
     }//GEN-LAST:event_openSimulationScreenButtonActionPerformed

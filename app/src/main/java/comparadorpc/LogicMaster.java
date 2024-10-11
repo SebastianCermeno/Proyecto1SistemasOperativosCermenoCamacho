@@ -51,6 +51,8 @@ public class LogicMaster {
     public int initialGraphicsWorkers = 0;
     public int initialAssemblyWorkers = 0;
 
+    public boolean iterateFinish = true;
+
     public void setDayInSeconds(int dayInSeconds) {
         this.dayInSeconds = dayInSeconds;
     }
@@ -95,7 +97,7 @@ public class LogicMaster {
         if (modeSwitch == true) {
             switch (pointer) {
                 case 0:
-                this.motherboardWorkers.append(new Worker(1, 2));
+                    this.motherboardWorkers.append(new Worker(1, 2));
                 break;
                 case 1:
                     this.cpuWorkers.append(new Worker(1, 2));
@@ -143,7 +145,12 @@ public class LogicMaster {
     }
 
     LogicMaster() {
-        
+        updateWorkers(true, 0);
+        updateWorkers(true, 1);
+        updateWorkers(true, 2);
+        updateWorkers(true, 3);
+        updateWorkers(true, 4);
+        updateWorkers(true, 5);
     }
     
     // Inner Classes (Data Structures)
@@ -437,6 +444,7 @@ public class LogicMaster {
                 warehouseController.release();
             }
             catch (InterruptedException exc) {
+                System.out.println("PiecesPipelineInterrupted");
                 System.out.println(exc);
             }
         }
@@ -576,28 +584,26 @@ public class LogicMaster {
     }
 
     public void simulateDay() throws InterruptedException { 
+        iterateFinish = false;
         this.specificPolicy = new CompanyPolicy(3, 1, 1, 5, 6, 5, 1);
 
-        currentDay = 0;
         Semaphore piecesGatekeeper = new Semaphore(1);
         Semaphore finishedPCGatekeper = new Semaphore(1);
         
-        for (int i = currentDay; i < workDays; i++) {
-            PiecesPipeline piecesRunnable = new PiecesPipeline(piecesGatekeeper, this);
-            ProjectManagerPipeline managerRunnable = new ProjectManagerPipeline();
-            AssemblyPipeline builderPCRunnable = new AssemblyPipeline(piecesGatekeeper, finishedPCGatekeper, this);
-            piecesRunnable.start();
-            piecesRunnable.join();
-            builderPCRunnable.start();
-            managerRunnable.start();
+        PiecesPipeline piecesRunnable = new PiecesPipeline(piecesGatekeeper, this);
+        ProjectManagerPipeline managerRunnable = new ProjectManagerPipeline();
+        AssemblyPipeline builderPCRunnable = new AssemblyPipeline(piecesGatekeeper, finishedPCGatekeper, this);
+        piecesRunnable.start();
+        piecesRunnable.join();
+        builderPCRunnable.start();
+        managerRunnable.start();
 
-            while (Thread.activeCount() > 1) {
-                continue;
+        while (true) {
+            if (!piecesRunnable.isAlive() && !builderPCRunnable.isAlive() && !managerRunnable.isAlive()){
+                break;
             }
         }
-
-        // this.myWarehouse.showInventory();
-        this.finishedWarehouse.shareInventory();
+        iterateFinish = true;
     }
     
     public void FileChooser() {

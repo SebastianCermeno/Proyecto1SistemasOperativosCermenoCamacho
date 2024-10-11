@@ -5,6 +5,10 @@
  */
 package ui;
 
+import java.util.concurrent.TimeUnit;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 import comparadorpc.LogicMaster;
 
 /**
@@ -12,9 +16,35 @@ import comparadorpc.LogicMaster;
  * @author andre
  */
 public class SimulationScreen extends javax.swing.JFrame {
+    private class timerSimulator extends Thread{
+        long sleepCount = 0;
+        SimulationScreen parent;
+        timerSimulator(long sleepTime, SimulationScreen reference) {
+            parent = reference;
+            sleepCount = sleepTime;
+        }
 
+        @Override
+        public void run(){
+            int secondsWaited = 0;
+            parent.hasWaited = false;
+            while (secondsWaited < sleepCount) {
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                    secondsWaited++;
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+            parent.hasWaited = true;
+        }
+    }
+
+    public boolean hasWaited = false;
     public static LogicMaster puppetMasterMagenta;
     public static LogicMaster puppetMasterNeon;
+    private boolean pauseController = false;
     
     /**
      * Creates new form SimulationScreen
@@ -27,6 +57,32 @@ public class SimulationScreen extends javax.swing.JFrame {
         this.summonCompletePCData();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+    }
+
+    public void beginSimulation() throws InterruptedException{
+        int counter = 0;
+        int finalizer = puppetMasterMagenta.workDays;
+        internalSimulation(counter, finalizer);
+        System.out.println("freedom???");
+    }
+
+    private void internalSimulation(int counter, int limit) throws InterruptedException{
+        int match = counter;
+        timerSimulator clock = new timerSimulator(2, this);
+        clock.start();
+        simulate();
+        while (true) {
+            if (!clock.isAlive() && puppetMasterMagenta.iterateFinish == true && puppetMasterNeon.iterateFinish == true){
+                break;
+            }
+        }
+        summonPiecesData();
+        summonCompletePCData();
+        System.out.println("escaped iteration" + counter);
+        match++;
+        if (match < limit) {
+            internalSimulation(match, limit);
+        }
     }
 
     /**
@@ -136,6 +192,7 @@ public class SimulationScreen extends javax.swing.JFrame {
         RAMalmacen_MSI = new javax.swing.JTextField();
         jLabel58 = new javax.swing.JLabel();
         back_Button = new javax.swing.JButton();
+        beginButton = new javax.swing.JButton();
         Wallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -744,6 +801,24 @@ public class SimulationScreen extends javax.swing.JFrame {
         });
         getContentPane().add(back_Button);
         back_Button.setBounds(20, 680, 130, 30);
+
+        beginButton.setBackground(new java.awt.Color(204, 204, 204));
+        beginButton.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
+        beginButton.setForeground(new java.awt.Color(51, 51, 51));
+        beginButton.setText("Comenzar");
+        beginButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        beginButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                try {
+                    beginSimulation();
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        });
+        getContentPane().add(beginButton);
+        beginButton.setBounds(900, 680, 130, 30);
         try {
             Wallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Modelos - Proyecto SSOO 1.png"))); // NOI18N
             getContentPane().add(Wallpaper);
@@ -807,6 +882,15 @@ public class SimulationScreen extends javax.swing.JFrame {
         PCEstandar_MSI.setText(String.valueOf(msiData[0]));
         PCwTG_MSI.setText(String.valueOf(msiData[1]));
     }
+
+    private void simulate() throws InterruptedException{
+        while (pauseController == true) {
+            continue;
+        }
+        puppetMasterMagenta.simulateDay();
+        puppetMasterNeon.simulateDay();
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -870,6 +954,7 @@ public class SimulationScreen extends javax.swing.JFrame {
     private javax.swing.JTextField availibleWorkers_DELL;
     private javax.swing.JTextField availibleWorkers_MSI;
     private javax.swing.JButton back_Button;
+    private javax.swing.JButton beginButton;
     private javax.swing.JTextField directorState_DELL;
     private javax.swing.JTextField directorState_MSI;
     private javax.swing.JButton displayDashboard_Button;
